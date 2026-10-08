@@ -43,5 +43,9 @@ export function pageHead(title: string, description: string, path: string) {
       { name: 'twitter:card', content: 'summary_large_image' },
     ],
     links: [{ rel: 'canonical', href: path }],
+    scripts: [{
+      type: 'application/ld+json',
+      children: JSON.stringify({ '@context': 'https://schema.org', '@type': 'WebPage', name: fullTitle, description, inLanguage: 'pt-BR' }),
+    }],
   };
 }
