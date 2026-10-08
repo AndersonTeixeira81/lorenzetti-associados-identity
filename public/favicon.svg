@@ -1,1 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" fill="#101010"/><g fill="#B89A5E" font-family="Georgia,serif"><text x="10" y="47" font-size="48">L</text><text x="29" y="49" font-size="34">A</text></g></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <rect width="64" height="64" rx="8" fill="#101010"/>
+  <circle cx="32" cy="32" r="24" fill="none" stroke="#B89A5E" stroke-width="1.5"/>
+  <text x="32" y="41" text-anchor="middle" fill="#B89A5E" font-family="Georgia, serif" font-weight="600" font-size="22" letter-spacing="1">LA</text>
+</svg>

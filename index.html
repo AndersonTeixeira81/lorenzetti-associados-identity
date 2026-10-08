@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="%BASE_URL%favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Lorenzetti &amp; Associados — Advocacia Trabalhista e Previdenciária em Dracena/SP</title>
+    <meta
+      name="description"
+      content="Escritório de advocacia em Dracena/SP com atuação nas áreas trabalhista e previdenciária: aposentadorias, revisões de benefícios, BPC/LOAS e benefícios por incapacidade. Orientação individualizada, ética e clareza em cada etapa."
+    />
+    <meta name="author" content="Lorenzetti & Associados" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://andersonteixeira81.github.io/lorenzetti-associados-identity/" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="pt_BR" />
+    <meta property="og:site_name" content="Lorenzetti & Associados" />
+    <meta
+      property="og:title"
+      content="Lorenzetti & Associados — Advocacia Trabalhista e Previdenciária em Dracena/SP"
+    />
+    <meta
+      property="og:description"
+      content="Atuação jurídica nas áreas trabalhista e previdenciária, com orientação individualizada, responsabilidade profissional e clareza em cada etapa."
+    />
+    <meta property="og:url" content="https://andersonteixeira81.github.io/lorenzetti-associados-identity/" />
+    <meta
+      property="og:image"
+      content="https://andersonteixeira81.github.io/lorenzetti-associados-identity/images/fachada.jpg"
+    />
+    <meta property="og:image:alt" content="Fachada do escritório Lorenzetti & Associados em Dracena/SP" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Lorenzetti & Associados — Advocacia Trabalhista e Previdenciária em Dracena/SP"
+    />
+    <meta
+      name="twitter:description"
+      content="Atuação jurídica nas áreas trabalhista e previdenciária, com orientação individualizada, responsabilidade profissional e clareza em cada etapa."
+    />
+
+    <!-- Tipografia -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Dados estruturados (apenas informações verificáveis) -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Attorney",
+        "name": "Lorenzetti & Associados",
+        "description": "Advocacia Trabalhista e Previdenciária em Dracena/SP.",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Avenida Presidente Roosevelt, 207",
+          "addressLocality": "Dracena",
+          "addressRegion": "SP",
+          "addressCountry": "BR"
+        },
+        "areaServed": {
+          "@type": "City",
+          "name": "Dracena"
+        },
+        "url": "https://andersonteixeira81.github.io/lorenzetti-associados-identity/"
+      }
+    </script>
+    <!-- Restauração de rota para SPA no GitHub Pages (par do 404.html) -->
+    <script>
+      (function (l) {
+        if (l.search[1] === "/") {
+          var decoded = l.search
+            .slice(1)
+            .split("&")
+            .map(function (s) { return s.replace(/~and~/g, "&"); })
+            .join("?");
+          window.history.replaceState(
+            null,
+            "",
+            l.pathname.slice(0, -1) + decoded + l.hash
+          );
+        }
+      })(window.location);
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

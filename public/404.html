@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Redirecionando… — Lorenzetti &amp; Associados</title>
+    <script>
+      // Truque de SPA para GitHub Pages: preserva a rota original e devolve ao index.
+      // O script de restauração no index.html reconstrói a URL antes do React carregar.
+      (function () {
+        var l = window.location;
+        var base = "/lorenzetti-associados-identity";
+        var path = l.pathname;
+        var route = path.indexOf(base) === 0 ? path.slice(base.length) : path;
+        if (route.charAt(0) !== "/") route = "/" + route;
+        var encoded = route.slice(1).replace(/&/g, "~and~");
+        l.replace(
+          l.protocol + "//" + l.host + base + "/?/" + encoded +
+          (l.search ? "&" + l.search.slice(1).replace(/&/g, "~and~") : "") +
+          l.hash
+        );
+      })();
+    </script>
+  </head>
+  <body>
+    <p>Redirecionando…</p>
+  </body>
+</html>
