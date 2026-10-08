@@ -51,7 +51,7 @@ export default function Header() {
             <Monograma className="h-9 w-9 md:h-12 md:w-12" />
             <span className="flex flex-col leading-none">
               <span className="font-serif-display text-lg font-semibold tracking-[0.08em] text-white md:text-xl">
-                LORENZETTI <span className="text-gold">&amp;</span> ASSOCIADOS
+                LORENZETTI <span className="text-gold">&amp;</span> RODRIGUES
               </span>
               <span className="mt-1 text-[9px] font-medium uppercase tracking-[0.42em] text-gold-light md:text-[10px]">
                 Advocacia

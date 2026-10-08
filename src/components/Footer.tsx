@@ -22,7 +22,7 @@ export default function Footer() {
               <Monograma className="h-11 w-11" />
               <div className="flex flex-col leading-none">
                 <span className="font-serif-display text-xl font-semibold tracking-[0.08em]">
-                  LORENZETTI <span className="text-gold">&amp;</span> ASSOCIADOS
+                  LORENZETTI <span className="text-gold">&amp;</span> RODRIGUES
                 </span>
                 <span className="mt-1.5 text-[10px] font-medium uppercase tracking-[0.42em] text-gold-light">
                   Advocacia
