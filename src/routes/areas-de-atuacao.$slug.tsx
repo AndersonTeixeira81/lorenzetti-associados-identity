@@ -1,0 +1,7 @@
+import { createFileRoute, Link, notFound } from '@tanstack/react-router';
+import { ArrowRight, Check } from 'lucide-react';
+import { areas } from '@/lib/content';
+import { pageHead } from '@/config/site';
+import { PageIntro, ContactBanner } from '@/components/site/sections';
+export const Route = createFileRoute('/areas-de-atuacao/$slug')({loader:({params})=>{const area=areas.find(a=>a.slug===params.slug);if(!area)throw notFound();return area;},head:({loaderData,params})=>pageHead(loaderData?.title??'Área não encontrada',loaderData?.description??'Área de atuação indisponível.',`/areas-de-atuacao/${params.slug}`),component:Page});
+function Page(){const area=Route.useLoaderData();return <><PageIntro eyebrow={area.category} title={area.title} description={area.description}/><section className="section"><div className="container reading-content"><Link className="text-link" to="/areas-de-atuacao">← Todas as áreas</Link><h2>Orientação jurídica com análise individualizada.</h2><p>{area.details}</p><h3>Temas que podem integrar a análise</h3><ul className="topic-list">{area.items.map(item=><li key={item}><Check size={18}/>{item}</li>)}</ul><p className="small-note">As informações são gerais. A atuação e as medidas cabíveis dependem da avaliação dos documentos e das circunstâncias de cada caso.</p><Link className="text-link" to="/contato">Fale com o escritório <ArrowRight size={17}/></Link></div></section><ContactBanner/></>;}

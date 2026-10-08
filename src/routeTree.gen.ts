@@ -10,33 +10,102 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AreasDeAtuacaoRouteImport } from './routes/areas-de-atuacao'
+import { Route as ContatoRouteImport } from './routes/contato'
+import { Route as ConteudosRouteImport } from './routes/conteudos'
+import { Route as EquipeRouteImport } from './routes/equipe'
+import { Route as EscritorioRouteImport } from './routes/escritorio'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AreasDeAtuacaoRoute = AreasDeAtuacaoRouteImport.update({
+  id: '/areas-de-atuacao',
+  path: '/areas-de-atuacao',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContatoRoute = ContatoRouteImport.update({
+  id: '/contato',
+  path: '/contato',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ConteudosRoute = ConteudosRouteImport.update({
+  id: '/conteudos',
+  path: '/conteudos',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EquipeRoute = EquipeRouteImport.update({
+  id: '/equipe',
+  path: '/equipe',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EscritorioRoute = EscritorioRouteImport.update({
+  id: '/escritorio',
+  path: '/escritorio',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/areas-de-atuacao': typeof AreasDeAtuacaoRoute
+  '/contato': typeof ContatoRoute
+  '/conteudos': typeof ConteudosRoute
+  '/equipe': typeof EquipeRoute
+  '/escritorio': typeof EscritorioRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/areas-de-atuacao': typeof AreasDeAtuacaoRoute
+  '/contato': typeof ContatoRoute
+  '/conteudos': typeof ConteudosRoute
+  '/equipe': typeof EquipeRoute
+  '/escritorio': typeof EscritorioRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/areas-de-atuacao': typeof AreasDeAtuacaoRoute
+  '/contato': typeof ContatoRoute
+  '/conteudos': typeof ConteudosRoute
+  '/equipe': typeof EquipeRoute
+  '/escritorio': typeof EscritorioRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/areas-de-atuacao'
+    | '/contato'
+    | '/conteudos'
+    | '/equipe'
+    | '/escritorio'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/areas-de-atuacao'
+    | '/contato'
+    | '/conteudos'
+    | '/equipe'
+    | '/escritorio'
+  id:
+    | '__root__'
+    | '/'
+    | '/areas-de-atuacao'
+    | '/contato'
+    | '/conteudos'
+    | '/equipe'
+    | '/escritorio'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AreasDeAtuacaoRoute: typeof AreasDeAtuacaoRoute
+  ContatoRoute: typeof ContatoRoute
+  ConteudosRoute: typeof ConteudosRoute
+  EquipeRoute: typeof EquipeRoute
+  EscritorioRoute: typeof EscritorioRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +117,51 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/areas-de-atuacao': {
+      id: '/areas-de-atuacao'
+      path: '/areas-de-atuacao'
+      fullPath: '/areas-de-atuacao'
+      preLoaderRoute: typeof AreasDeAtuacaoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contato': {
+      id: '/contato'
+      path: '/contato'
+      fullPath: '/contato'
+      preLoaderRoute: typeof ContatoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/conteudos': {
+      id: '/conteudos'
+      path: '/conteudos'
+      fullPath: '/conteudos'
+      preLoaderRoute: typeof ConteudosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/equipe': {
+      id: '/equipe'
+      path: '/equipe'
+      fullPath: '/equipe'
+      preLoaderRoute: typeof EquipeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/escritorio': {
+      id: '/escritorio'
+      path: '/escritorio'
+      fullPath: '/escritorio'
+      preLoaderRoute: typeof EscritorioRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AreasDeAtuacaoRoute: AreasDeAtuacaoRoute,
+  ContatoRoute: ContatoRoute,
+  ConteudosRoute: ConteudosRoute,
+  EquipeRoute: EquipeRoute,
+  EscritorioRoute: EscritorioRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
