@@ -61,10 +61,10 @@ export default function Escritorio() {
                 diretamente a dignidade, o sustento e o futuro das pessoas.
               </p>
               <p>
-                À frente do escritório estão {site.profissionais[0].nome} e{" "}
-                {site.profissionais[1].nome}, que conduzem cada atendimento com a
-                convicção de que bons resultados começam com boa escuta, análise
-                rigorosa e comunicação honesta.
+                À frente do escritório estão {site.profissionais[0].nome},{" "}
+                {site.profissionais[1].nome} e {site.profissionais[2].nome}, que
+                conduzem cada atendimento com a convicção de que bons resultados
+                começam com boa escuta, análise rigorosa e comunicação honesta.
               </p>
               <p>
                 A publicidade do escritório segue caráter institucional, informativo e
