@@ -58,7 +58,7 @@ export default function Home() {
           <Reveal>
             <div className="relative">
               <img
-                src={`${BASE}images/fachada.png`}
+                src={`${BASE}images/fechada.png`}
                 alt="Fachada do escritório Lorenzetti & Rodrigues em Dracena/SP"
                 className="aspect-[4/3] w-full object-cover"
                 loading="lazy"
