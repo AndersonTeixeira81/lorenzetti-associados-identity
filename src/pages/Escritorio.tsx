@@ -43,7 +43,7 @@ export default function Escritorio() {
         <div className="mx-auto grid max-w-7xl items-center gap-12 px-5 md:px-8 lg:grid-cols-2 lg:gap-20">
           <Reveal>
             <img
-              src={`${BASE}images/fachada.jpg`}
+              src={`${BASE}images/fachada.png`}
               alt="Fachada do escritório Lorenzetti & Associados em Dracena/SP"
               className="aspect-[4/3] w-full object-cover"
               loading="lazy"
