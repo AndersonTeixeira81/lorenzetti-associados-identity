@@ -15,6 +15,9 @@ import { Route as ContatoRouteImport } from './routes/contato'
 import { Route as ConteudosRouteImport } from './routes/conteudos'
 import { Route as EquipeRouteImport } from './routes/equipe'
 import { Route as EscritorioRouteImport } from './routes/escritorio'
+import { Route as PoliticaDePrivacidadeRouteImport } from './routes/politica-de-privacidade'
+import { Route as AreasDeAtuacaoSlugRouteImport } from './routes/areas-de-atuacao.$slug'
+import { Route as ConteudosSlugRouteImport } from './routes/conteudos.$slug'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -46,31 +49,55 @@ const EscritorioRoute = EscritorioRouteImport.update({
   path: '/escritorio',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PoliticaDePrivacidadeRoute = PoliticaDePrivacidadeRouteImport.update({
+  id: '/politica-de-privacidade',
+  path: '/politica-de-privacidade',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AreasDeAtuacaoSlugRoute = AreasDeAtuacaoSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => AreasDeAtuacaoRoute,
+} as any)
+const ConteudosSlugRoute = ConteudosSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => ConteudosRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/areas-de-atuacao': typeof AreasDeAtuacaoRoute
+  '/areas-de-atuacao': typeof AreasDeAtuacaoRouteWithChildren
   '/contato': typeof ContatoRoute
-  '/conteudos': typeof ConteudosRoute
+  '/conteudos': typeof ConteudosRouteWithChildren
   '/equipe': typeof EquipeRoute
   '/escritorio': typeof EscritorioRoute
+  '/politica-de-privacidade': typeof PoliticaDePrivacidadeRoute
+  '/areas-de-atuacao/$slug': typeof AreasDeAtuacaoSlugRoute
+  '/conteudos/$slug': typeof ConteudosSlugRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/areas-de-atuacao': typeof AreasDeAtuacaoRoute
+  '/areas-de-atuacao': typeof AreasDeAtuacaoRouteWithChildren
   '/contato': typeof ContatoRoute
-  '/conteudos': typeof ConteudosRoute
+  '/conteudos': typeof ConteudosRouteWithChildren
   '/equipe': typeof EquipeRoute
   '/escritorio': typeof EscritorioRoute
+  '/politica-de-privacidade': typeof PoliticaDePrivacidadeRoute
+  '/areas-de-atuacao/$slug': typeof AreasDeAtuacaoSlugRoute
+  '/conteudos/$slug': typeof ConteudosSlugRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/areas-de-atuacao': typeof AreasDeAtuacaoRoute
+  '/areas-de-atuacao': typeof AreasDeAtuacaoRouteWithChildren
   '/contato': typeof ContatoRoute
-  '/conteudos': typeof ConteudosRoute
+  '/conteudos': typeof ConteudosRouteWithChildren
   '/equipe': typeof EquipeRoute
   '/escritorio': typeof EscritorioRoute
+  '/politica-de-privacidade': typeof PoliticaDePrivacidadeRoute
+  '/areas-de-atuacao/$slug': typeof AreasDeAtuacaoSlugRoute
+  '/conteudos/$slug': typeof ConteudosSlugRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -81,6 +108,9 @@ export interface FileRouteTypes {
     | '/conteudos'
     | '/equipe'
     | '/escritorio'
+    | '/politica-de-privacidade'
+    | '/areas-de-atuacao/$slug'
+    | '/conteudos/$slug'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -89,6 +119,9 @@ export interface FileRouteTypes {
     | '/conteudos'
     | '/equipe'
     | '/escritorio'
+    | '/politica-de-privacidade'
+    | '/areas-de-atuacao/$slug'
+    | '/conteudos/$slug'
   id:
     | '__root__'
     | '/'
@@ -97,15 +130,19 @@ export interface FileRouteTypes {
     | '/conteudos'
     | '/equipe'
     | '/escritorio'
+    | '/politica-de-privacidade'
+    | '/areas-de-atuacao/$slug'
+    | '/conteudos/$slug'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  AreasDeAtuacaoRoute: typeof AreasDeAtuacaoRoute
+  AreasDeAtuacaoRoute: typeof AreasDeAtuacaoRouteWithChildren
   ContatoRoute: typeof ContatoRoute
-  ConteudosRoute: typeof ConteudosRoute
+  ConteudosRoute: typeof ConteudosRouteWithChildren
   EquipeRoute: typeof EquipeRoute
   EscritorioRoute: typeof EscritorioRoute
+  PoliticaDePrivacidadeRoute: typeof PoliticaDePrivacidadeRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -152,16 +189,62 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof EscritorioRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/politica-de-privacidade': {
+      id: '/politica-de-privacidade'
+      path: '/politica-de-privacidade'
+      fullPath: '/politica-de-privacidade'
+      preLoaderRoute: typeof PoliticaDePrivacidadeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/areas-de-atuacao/$slug': {
+      id: '/areas-de-atuacao/$slug'
+      path: '/$slug'
+      fullPath: '/areas-de-atuacao/$slug'
+      preLoaderRoute: typeof AreasDeAtuacaoSlugRouteImport
+      parentRoute: typeof AreasDeAtuacaoRoute
+    }
+    '/conteudos/$slug': {
+      id: '/conteudos/$slug'
+      path: '/$slug'
+      fullPath: '/conteudos/$slug'
+      preLoaderRoute: typeof ConteudosSlugRouteImport
+      parentRoute: typeof ConteudosRoute
+    }
   }
 }
 
+interface AreasDeAtuacaoRouteChildren {
+  AreasDeAtuacaoSlugRoute: typeof AreasDeAtuacaoSlugRoute
+}
+
+const AreasDeAtuacaoRouteChildren: AreasDeAtuacaoRouteChildren = {
+  AreasDeAtuacaoSlugRoute: AreasDeAtuacaoSlugRoute,
+}
+
+const AreasDeAtuacaoRouteWithChildren = AreasDeAtuacaoRoute._addFileChildren(
+  AreasDeAtuacaoRouteChildren,
+)
+
+interface ConteudosRouteChildren {
+  ConteudosSlugRoute: typeof ConteudosSlugRoute
+}
+
+const ConteudosRouteChildren: ConteudosRouteChildren = {
+  ConteudosSlugRoute: ConteudosSlugRoute,
+}
+
+const ConteudosRouteWithChildren = ConteudosRoute._addFileChildren(
+  ConteudosRouteChildren,
+)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  AreasDeAtuacaoRoute: AreasDeAtuacaoRoute,
+  AreasDeAtuacaoRoute: AreasDeAtuacaoRouteWithChildren,
   ContatoRoute: ContatoRoute,
-  ConteudosRoute: ConteudosRoute,
+  ConteudosRoute: ConteudosRouteWithChildren,
   EquipeRoute: EquipeRoute,
   EscritorioRoute: EscritorioRoute,
+  PoliticaDePrivacidadeRoute: PoliticaDePrivacidadeRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
