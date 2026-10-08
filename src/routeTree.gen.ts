@@ -16,7 +16,9 @@ import { Route as ConteudosRouteImport } from './routes/conteudos'
 import { Route as EquipeRouteImport } from './routes/equipe'
 import { Route as EscritorioRouteImport } from './routes/escritorio'
 import { Route as PoliticaDePrivacidadeRouteImport } from './routes/politica-de-privacidade'
+import { Route as AreasDeAtuacaoIndexRouteImport } from './routes/areas-de-atuacao.index'
 import { Route as AreasDeAtuacaoSlugRouteImport } from './routes/areas-de-atuacao.$slug'
+import { Route as ConteudosIndexRouteImport } from './routes/conteudos.index'
 import { Route as ConteudosSlugRouteImport } from './routes/conteudos.$slug'
 
 const IndexRoute = IndexRouteImport.update({
@@ -54,10 +56,20 @@ const PoliticaDePrivacidadeRoute = PoliticaDePrivacidadeRouteImport.update({
   path: '/politica-de-privacidade',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AreasDeAtuacaoIndexRoute = AreasDeAtuacaoIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => AreasDeAtuacaoRoute,
+} as any)
 const AreasDeAtuacaoSlugRoute = AreasDeAtuacaoSlugRouteImport.update({
   id: '/$slug',
   path: '/$slug',
   getParentRoute: () => AreasDeAtuacaoRoute,
+} as any)
+const ConteudosIndexRoute = ConteudosIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => ConteudosRoute,
 } as any)
 const ConteudosSlugRoute = ConteudosSlugRouteImport.update({
   id: '/$slug',
@@ -75,17 +87,19 @@ export interface FileRoutesByFullPath {
   '/politica-de-privacidade': typeof PoliticaDePrivacidadeRoute
   '/areas-de-atuacao/$slug': typeof AreasDeAtuacaoSlugRoute
   '/conteudos/$slug': typeof ConteudosSlugRoute
+  '/areas-de-atuacao/': typeof AreasDeAtuacaoIndexRoute
+  '/conteudos/': typeof ConteudosIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/areas-de-atuacao': typeof AreasDeAtuacaoRouteWithChildren
   '/contato': typeof ContatoRoute
-  '/conteudos': typeof ConteudosRouteWithChildren
   '/equipe': typeof EquipeRoute
   '/escritorio': typeof EscritorioRoute
   '/politica-de-privacidade': typeof PoliticaDePrivacidadeRoute
   '/areas-de-atuacao/$slug': typeof AreasDeAtuacaoSlugRoute
   '/conteudos/$slug': typeof ConteudosSlugRoute
+  '/areas-de-atuacao': typeof AreasDeAtuacaoIndexRoute
+  '/conteudos': typeof ConteudosIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -98,6 +112,8 @@ export interface FileRoutesById {
   '/politica-de-privacidade': typeof PoliticaDePrivacidadeRoute
   '/areas-de-atuacao/$slug': typeof AreasDeAtuacaoSlugRoute
   '/conteudos/$slug': typeof ConteudosSlugRoute
+  '/areas-de-atuacao/': typeof AreasDeAtuacaoIndexRoute
+  '/conteudos/': typeof ConteudosIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -111,17 +127,19 @@ export interface FileRouteTypes {
     | '/politica-de-privacidade'
     | '/areas-de-atuacao/$slug'
     | '/conteudos/$slug'
+    | '/areas-de-atuacao/'
+    | '/conteudos/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
-    | '/areas-de-atuacao'
     | '/contato'
-    | '/conteudos'
     | '/equipe'
     | '/escritorio'
     | '/politica-de-privacidade'
     | '/areas-de-atuacao/$slug'
     | '/conteudos/$slug'
+    | '/areas-de-atuacao'
+    | '/conteudos'
   id:
     | '__root__'
     | '/'
@@ -133,6 +151,8 @@ export interface FileRouteTypes {
     | '/politica-de-privacidade'
     | '/areas-de-atuacao/$slug'
     | '/conteudos/$slug'
+    | '/areas-de-atuacao/'
+    | '/conteudos/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -196,12 +216,26 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PoliticaDePrivacidadeRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/areas-de-atuacao/': {
+      id: '/areas-de-atuacao/'
+      path: '/'
+      fullPath: '/areas-de-atuacao/'
+      preLoaderRoute: typeof AreasDeAtuacaoIndexRouteImport
+      parentRoute: typeof AreasDeAtuacaoRoute
+    }
     '/areas-de-atuacao/$slug': {
       id: '/areas-de-atuacao/$slug'
       path: '/$slug'
       fullPath: '/areas-de-atuacao/$slug'
       preLoaderRoute: typeof AreasDeAtuacaoSlugRouteImport
       parentRoute: typeof AreasDeAtuacaoRoute
+    }
+    '/conteudos/': {
+      id: '/conteudos/'
+      path: '/'
+      fullPath: '/conteudos/'
+      preLoaderRoute: typeof ConteudosIndexRouteImport
+      parentRoute: typeof ConteudosRoute
     }
     '/conteudos/$slug': {
       id: '/conteudos/$slug'
@@ -215,10 +249,12 @@ declare module '@tanstack/react-router' {
 
 interface AreasDeAtuacaoRouteChildren {
   AreasDeAtuacaoSlugRoute: typeof AreasDeAtuacaoSlugRoute
+  AreasDeAtuacaoIndexRoute: typeof AreasDeAtuacaoIndexRoute
 }
 
 const AreasDeAtuacaoRouteChildren: AreasDeAtuacaoRouteChildren = {
   AreasDeAtuacaoSlugRoute: AreasDeAtuacaoSlugRoute,
+  AreasDeAtuacaoIndexRoute: AreasDeAtuacaoIndexRoute,
 }
 
 const AreasDeAtuacaoRouteWithChildren = AreasDeAtuacaoRoute._addFileChildren(
@@ -227,10 +263,12 @@ const AreasDeAtuacaoRouteWithChildren = AreasDeAtuacaoRoute._addFileChildren(
 
 interface ConteudosRouteChildren {
   ConteudosSlugRoute: typeof ConteudosSlugRoute
+  ConteudosIndexRoute: typeof ConteudosIndexRoute
 }
 
 const ConteudosRouteChildren: ConteudosRouteChildren = {
   ConteudosSlugRoute: ConteudosSlugRoute,
+  ConteudosIndexRoute: ConteudosIndexRoute,
 }
 
 const ConteudosRouteWithChildren = ConteudosRoute._addFileChildren(
