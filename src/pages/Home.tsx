@@ -59,7 +59,7 @@ export default function Home() {
             <div className="relative">
               <img
                 src={`${BASE}images/fachada.png`}
-                alt="Fachada do escritório Lorenzetti & Associados em Dracena/SP"
+                alt="Fachada do escritório Lorenzetti & Rodrigues em Dracena/SP"
                 className="aspect-[4/3] w-full object-cover"
                 loading="lazy"
               />

@@ -5,9 +5,8 @@
  * Para alterar nome, endereço, profissionais, links ou contato, edite aqui —
  * nenhuma outra parte do código precisa ser tocada.
  *
- * "Lorenzetti & Associados" é uma denominação PROVISÓRIA para fins de design.
- * Não a apresente como razão social registrada ou sociedade de advogados
- * formalmente constituída sem validação jurídica.
+ * Denominação confirmada pela fachada do escritório:
+ * "Lorenzetti & Rodrigues — Sociedade de Advogados".
  */
 
 export interface Profissional {
@@ -22,8 +21,8 @@ export interface Profissional {
 }
 
 export const site = {
-  /** Denominação provisória — ver aviso acima. */
-  nome: "Lorenzetti & Associados",
+  /** Denominação do escritório, conforme a fachada. */
+  nome: "Lorenzetti & Rodrigues",
   assinatura: "Advocacia Trabalhista e Previdenciária",
 
   endereco: {
@@ -37,14 +36,21 @@ export const site = {
   profissionais: [
     {
       nome: "Dr. Eduardo Lorenzetti",
-      oab: "OAB/SP 162.871",
+      oab: "OAB/SP 341-758",
       bio: null,
       foto: null,
       iniciais: "EL",
     },
     {
+      nome: "Dra. Tânia Ecle Lorenzetti",
+      oab: "OAB/SP 399-909",
+      bio: null,
+      foto: null,
+      iniciais: "TL",
+    },
+    {
       nome: "Dr. Milton R. S. Júnior",
-      oab: "OAB/SP 123.074",
+      oab: "OAB/SP 342-230",
       bio: null,
       foto: null,
       iniciais: "MJ",
@@ -53,7 +59,8 @@ export const site = {
 
   /**
    * Exibir números de OAB no site somente após confirmação.
-   * Os números acima foram lidos da fotografia da fachada enviada pelo cliente.
+   * Os números acima foram lidos da fotografia atualizada da fachada,
+   * enviada pelo cliente em 2026-10-08.
    */
   exibirRegistrosProfissionais: false,
 

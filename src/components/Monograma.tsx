@@ -3,7 +3,7 @@ interface MonogramaProps {
 }
 
 /**
- * Monograma tipográfico "LA" — proposta de identidade provisória.
+ * Monograma tipográfico "LR" — identidade do escritório.
  * Minimalista, em dourado, desenhado em SVG para nitidez total.
  */
 export default function Monograma({ className = "h-12 w-12" }: MonogramaProps) {
@@ -12,7 +12,7 @@ export default function Monograma({ className = "h-12 w-12" }: MonogramaProps) {
       viewBox="0 0 64 64"
       className={className}
       role="img"
-      aria-label="Monograma Lorenzetti & Associados"
+      aria-label="Monograma Lorenzetti & Rodrigues"
     >
       <circle
         cx="32"
@@ -42,7 +42,7 @@ export default function Monograma({ className = "h-12 w-12" }: MonogramaProps) {
         fontSize="24"
         letterSpacing="1"
       >
-        LA
+        LR
       </text>
     </svg>
   );

@@ -14,7 +14,7 @@ export default function Hero() {
       <div className="absolute inset-0">
         <img
           src={`${BASE}images/fachada.png`}
-          alt="Fachada do escritório Lorenzetti & Associados, na Avenida Presidente Roosevelt, 207, em Dracena/SP"
+          alt="Fachada do escritório Lorenzetti & Rodrigues, na Avenida Presidente Roosevelt, 207, em Dracena/SP"
           className="h-full w-full animate-fade-in object-cover object-center"
           fetchPriority="high"
         />
