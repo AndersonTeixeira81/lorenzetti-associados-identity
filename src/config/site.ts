@@ -82,9 +82,8 @@ export const site = {
   },
 
   mapas: {
-    /** Link "Como chegar" (Google Maps). */
-    comoChegar:
-      "https://www.google.com/maps/search/?api=1&query=Avenida+Presidente+Roosevelt+207+Dracena+SP",
+    /** Link "Como chegar" (Google Maps) — perfil/local oficial do escritório. */
+    comoChegar: "https://maps.app.goo.gl/41TEopCtnKFBB1rJ7",
     /** Embed do mapa na seção de localização. */
     embed:
       "https://www.google.com/maps?q=Avenida+Presidente+Roosevelt,+207,+Dracena,+SP&output=embed",
